@@ -61,14 +61,13 @@ final class Statistics {
     public static float medianCalculation(
         final Integer[] numberArray, final int quantity) {
         float median = 0;
-        final double extra = 0.5;
 
         Arrays.sort(numberArray);
         if (quantity % 2 == 0) {
-            median = numberArray[quantity / 2];
+            median = (numberArray[(int) (quantity / 2)]
+                + numberArray[(int) ((quantity - 1) / 2)]) / 2;
         } else {
-            median = (numberArray[(int) (quantity / 2 + extra)]
-                    + numberArray[(int) (quantity / 2 - extra)]) / 2;
+            median = numberArray[(int) ((quantity - 1) / 2)];
         }
         return median;
     }
